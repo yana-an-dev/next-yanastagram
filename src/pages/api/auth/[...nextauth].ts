@@ -15,7 +15,6 @@ export const authOptions: NextAuthOptions = {
 	},
 	callbacks: {
 		async signIn({ user: { name, id, email, image } }) {
-			console.log("@@@signIn", name, id, email, image);
 			if (!email) {
 				return false; //이메일 없으면 로그인하지마
 			}
@@ -29,7 +28,6 @@ export const authOptions: NextAuthOptions = {
 			return true;
 		},
 		async session({ session }) {
-			console.log("@@@session", session);
 			const user = session?.user;
 			if (user) {
 				session.user = {
